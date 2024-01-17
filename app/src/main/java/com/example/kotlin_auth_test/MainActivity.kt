@@ -1,21 +1,18 @@
-package com.example.kotlin_auth_test
+package com.keitheyre.kotlin_auth_test
 
 import AuthViewModel
 import HomeActivity
+import LoginActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
-import com.example.kotlin_auth_test.activity.LoginActivity
-import com.example.kotlin_auth_test.ui.theme.MyKotlinAuthenticationWithFirebaseApplicationTheme
+import com.keitheyre.kotlin_auth_test.ui.theme.MyKotlinAuthenticationWithFirebaseApplicationTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var authViewModel: AuthViewModel
@@ -37,6 +34,7 @@ class MainActivity : ComponentActivity() {
                         startActivity(Intent(this@MainActivity, HomeActivity::class.java))
                         finish()
                     }
+
                     else -> {
                         // User is not authenticated, navigate to the login activity
                         startActivity(Intent(this@MainActivity, LoginActivity::class.java))

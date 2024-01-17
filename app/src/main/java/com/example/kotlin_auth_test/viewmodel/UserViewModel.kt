@@ -1,6 +1,6 @@
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.kotlin_auth_test.model.UserProfile
+import com.keitheyre.kotlin_auth_test.model.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 
 class UserViewModel(private val firestoreService: FirestoreService) : ViewModel() {
@@ -17,7 +17,7 @@ class UserViewModel(private val firestoreService: FirestoreService) : ViewModel(
         }
     }
 
-    private fun fetchUserProfile(uid: String) {
+    fun fetchUserProfile(uid: String) {
         firestoreService.getUserProfile(uid)
             .get()
             .addOnSuccessListener { documentSnapshot ->

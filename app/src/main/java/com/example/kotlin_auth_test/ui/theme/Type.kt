@@ -1,4 +1,4 @@
-package com.example.kotlin_auth_test.ui.theme
+package com.keitheyre.kotlin_auth_test.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

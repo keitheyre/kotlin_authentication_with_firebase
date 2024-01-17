@@ -1,4 +1,4 @@
-package com.example.kotlin_auth_test
+package com.keitheyre.kotlin_auth_test
 
 import org.junit.Test
 

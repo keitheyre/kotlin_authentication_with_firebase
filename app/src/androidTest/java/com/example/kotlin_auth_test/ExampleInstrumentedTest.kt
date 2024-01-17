@@ -1,4 +1,4 @@
-package com.example.kotlin_auth_test
+package com.keitheyre.kotlin_auth_test
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.kotlin_auth_test", appContext.packageName)
+        assertEquals("com.keitheyre.kotlin_auth_test", appContext.packageName)
     }
 }

@@ -1,13 +1,11 @@
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModelProvider
+import com.keitheyre.kotlin_auth_test.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-    private val firestoreService = FirestoreService()
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,20 +13,14 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // Initialize FirestoreService
-        firestoreService.init()
+        // Initialize UserViewModel
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        // Fetch the user's data from Firestore
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            GlobalScope.launch(Dispatchers.IO) {
-                val userProfile = firestoreService.getUserProfile(user.uid)
-                if (userProfile != null) {
-                    // Update UI with the user's data
-                    runOnUiThread {
-                        binding.userNameTextView.text = "Welcome, ${userProfile.username}"
-                    }
-                }
+        // Observe the user profile LiveData
+        userViewModel.userProfile.observe(this) { userProfile ->
+            if (userProfile != null) {
+                // Update UI with the user's name
+                binding.userNameTextView.text = "Welcome, ${userProfile.name}"
             }
         }
 

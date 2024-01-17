@@ -1,14 +1,16 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.kotlin_auth_test"
+    namespace = "com.keitheyre.kotlin_auth_test"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.kotlin_auth_test"
+        applicationId = "com.keitheyre.kotlin_auth_test"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -46,6 +48,9 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
